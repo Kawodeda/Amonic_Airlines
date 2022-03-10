@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AMONIC_Mobile.AmenitiesPage"
+             NavigationPage.HasNavigationBar="False"
+             NavigationPage.HasBackButton="False"
+             Appearing="ContentPage_Appearing">
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout>
+                <Frame
+                BorderColor="Transparent"
+                Padding="10">
+                    <Image
+                    Source="logo.png"/>
+                </Frame>
+                <ListView
+                x:Name="amenities_view"
+                Margin="20, 10, 20, 15"
+                    RowHeight="50">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell 
+                                Text="{Binding Path=Name}"
+                                TextColor="#2196F3"
+                                Detail="{Binding Converter={StaticResource PriceConverter}, Path=Price}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Button
+            Clicked="back_btn_Clicked"
+            Margin="40, 0, 40, 15"
+            VerticalOptions="EndAndExpand"
+            Text="Back"/>
+            </StackLayout>
+            <ActivityIndicator
+                x:Name="activity_indicator"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand"
+                Color="Black"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AMONIC_Mobile.ReservePage"
+             NavigationPage.HasNavigationBar="False"
+             NavigationPage.HasBackButton="False">
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout>
+                <Frame 
+                BackgroundColor="Transparent"
+                 Padding="20, 10, 20, 0">
+                    <StackLayout
+                    Orientation="Horizontal"
+                    HorizontalOptions="CenterAndExpand">
+                        <Label
+                        Text="Ticket number:"/>
+                        <Entry 
+                        x:Name="ticket_number_entry"
+                        WidthRequest="200"
+                        Placeholder="XXXX"/>
+                        <Button
+                        Clicked="next_btn_Clicked"
+                        CornerRadius="3"
+                        Text="Next"
+                        FontSize="14"
+                        HeightRequest="35"
+                        VerticalOptions="Center"/>
+                    </StackLayout>
+                </Frame>
+                <Image
+                x:Name="cabin_image"
+                    BackgroundColor="Transparent"
+                VerticalOptions="CenterAndExpand"
+                Aspect="AspectFit"
+                HeightRequest="450"
+                Margin="20, 20, 20, 20"/>
+                <StackLayout
+                Orientation="Horizontal"
+                VerticalOptions="EndAndExpand"
+                HorizontalOptions="CenterAndExpand"
+                Padding="0, 0, 0, 10"
+                Spacing="20">
+                    <Button
+                        Clicked="reserve_btn_Clicked"
+                Text="Reserve Seat"
+                HorizontalOptions="Center"
+                    WidthRequest="180"/>
+                    <Button
+                Text="Back"
+                    Clicked="back_btn_Clicked"
+                HorizontalOptions="Center"
+                    WidthRequest="180"/>
+                </StackLayout>
+            </StackLayout>
+            <ActivityIndicator
+                x:Name="activity_indicator"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Color="Black"/>
+            <Label
+                x:Name="current_booking_label"
+                VerticalOptions="StartAndExpand"
+                HorizontalOptions="StartAndExpand"
+                Margin="20, 50, 0, 0"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

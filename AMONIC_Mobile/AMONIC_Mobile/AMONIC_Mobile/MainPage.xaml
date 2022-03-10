@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AMONIC_Mobile.MainPage"
+             NavigationPage.HasNavigationBar="False"
+             NavigationPage.HasBackButton="False">
+
+    <StackLayout
+        Spacing="40">
+        <Frame BackgroundColor="Transparent" Padding="40, 10, 40, 0" CornerRadius="0">
+            <Image
+                Source="logo.png"/>
+        </Frame>
+        <Button
+            x:Name="search_btn"
+            Clicked="search_btn_Clicked"
+            Margin="40, 20, 40, 0"
+            Text="Search Flights"/>
+        <Button
+            Clicked="reserve_btn_Clicked"
+            Margin="40, 0, 40, 0"
+            Text="Reserve Seat"/>
+        <Button
+            Clicked="amenities_btn_Clicked"
+            Margin="40, 0, 40, 0"
+            Text="Amenities"/>
+        <Button
+            Clicked="about_btn_Clicked"
+            Margin="40, 0, 40, 0"
+            Text="About Our Airline"/>
+        <ActivityIndicator
+            x:Name="activity_indicator"
+            Color="Black"/>
+    </StackLayout>
+
+</ContentPage>

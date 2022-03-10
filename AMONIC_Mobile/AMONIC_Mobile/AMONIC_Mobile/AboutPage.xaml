@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AMONIC_Mobile.AboutPage"
+             NavigationPage.HasNavigationBar="False"
+             NavigationPage.HasBackButton="False">
+    <StackLayout
+        Spacing="10">
+        <Frame Padding="20"
+               BorderColor="Transparent">
+            <Image
+                x:Name="logo_image"
+                Source="Airplane.png"/>
+        </Frame>
+        <Frame
+            HeightRequest="400"
+            VerticalOptions="EndAndExpand"
+            Margin="20, 0, 20, 0"
+            BorderColor="Black"
+            Padding="10">
+            <ScrollView
+            Orientation="Vertical">
+                <Label
+                x:Name="about_label"
+                Text="112342632634242626236"
+                TextColor="Black"
+                FontSize="26"/>
+            </ScrollView>
+        </Frame>
+        <Button
+            Clicked="back_btn_Clicked"
+            Margin="40, 0, 40, 15"
+            VerticalOptions="EndAndExpand"
+            Text="Back"/>
+    </StackLayout>
+</ContentPage>

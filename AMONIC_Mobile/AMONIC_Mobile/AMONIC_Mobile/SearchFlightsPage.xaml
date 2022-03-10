@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AMONIC_Mobile.SearchFlightsPage"
+             NavigationPage.HasNavigationBar="False"
+             NavigationPage.HasBackButton="False"
+             Appearing="ContentPage_Appearing">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout
+                x:Name="main_layout"
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                 AbsoluteLayout.LayoutFlags="All">
+                <Frame
+                BorderColor="Transparent"
+                Padding="10">
+                    <Image
+                    Source="logo.png"/>
+                </Frame>
+                <Picker
+                x:Name="from_picker"
+                Margin="20, 0, 20, 0"
+                ItemDisplayBinding="{Binding StringFormat='From: {0}', Path=Name}"
+                HorizontalTextAlignment="Start"
+                SelectedIndexChanged="from_picker_SelectedIndexChanged"/>
+                <Picker
+                x:Name="to_picker"
+                Margin="20, 0, 20, 0"
+                ItemDisplayBinding="{Binding StringFormat='To: {0}', Path=Name}"
+                HorizontalTextAlignment="Start"
+                SelectedIndexChanged="to_picker_SelectedIndexChanged"/>
+                <DatePicker
+                Margin="20, 0, 20, 0"
+                x:Name="date_picker"/>
+                <Button
+                Text="Search Flights"
+                Clicked="search_btn_Clicked"
+                Margin="20, 10, 20, 0"
+                CornerRadius="3"/>
+                <ListView
+                x:Name="flights_view"
+                Margin="20, 10, 20, 0"
+                RowHeight="70"
+                >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid
+                                Padding="5"
+                                ColumnSpacing="0"
+                                RowSpacing="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image
+                                    Grid.Column="0"
+                                    Grid.Row="0"
+                                    HorizontalOptions="Start"
+                                    WidthRequest="15"
+                                    Source="airplane_icon.png"/>
+                                    <Label
+                                    Margin="20, 0, 0, 0"
+                                    Grid.Column="0"
+                                    Grid.Row="0"
+                                    Text="{Binding StringFormat='flight number: {0}', Path=FlightNumber}"/>
+                                    <Label
+                                    Grid.Column="0"
+                                    Grid.Row="1"
+                                    Text="{Binding StringFormat='Price: {0:c}', Path=Price}"/>
+                                    <Label
+                                    Grid.Column="0"
+                                    Grid.Row="2">
+                                        <Label.Text>
+                                            <MultiBinding StringFormat="Time: {0:hh}:{0:mm}   Aircraft: {1}" FallbackValue="-">
+                                                <Binding Path="Time"/>
+                                                <Binding Path="Aircraft"/>
+                                            </MultiBinding>
+                                        </Label.Text>
+                                    </Label>
+                                    <Image
+                                    Grid.Column="1"
+                                    Grid.Row="0"
+                                    WidthRequest="5"
+                                    Source="calendar_icon.png"/>
+                                    <Label
+                                    HorizontalOptions="End"
+                                    Grid.Column="1"
+                                    Grid.Row="0"
+                                    Text="{Binding StringFormat='{0:d}', Path=Date}"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Button
+            Clicked="back_btn_Clicked"
+            Margin="40, 0, 40, 15"
+            VerticalOptions="EndAndExpand"
+            Text="Back"/>
+            </StackLayout>
+            <StackLayout
+                x:Name="ai_layout"
+                IsVisible="False"
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                    AbsoluteLayout.LayoutFlags="All"
+                BackgroundColor="Gray"
+                Opacity="0.3">
+                <ActivityIndicator
+                    x:Name="activity_indicator"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                    Color="Black"
+                    IsRunning="False"/>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

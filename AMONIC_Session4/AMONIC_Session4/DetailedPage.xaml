@@ -1,0 +1,428 @@
+﻿<Page x:Class="AMONIC_Session4.DetailedPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AMONIC_Session4"
+      xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+      xmlns:charts="clr-namespace:System.Windows.Forms.DataVisualization.Charting;assembly=System.Windows.Forms.DataVisualization"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="DetailedPage"
+      Width="1000"
+      Height="770">
+
+    <Grid>
+        <StackPanel
+            Orientation="Vertical"
+            VerticalAlignment="Top"
+            Margin="10, 15, 20, 0">
+            <StackPanel
+                Margin="0, 10, 30, 0"
+                Orientation="Horizontal"
+                HorizontalAlignment="Right">
+                <TextBlock
+                    Margin="0, 3, 5, 0"
+                    Text="Time period: "/>
+                <ComboBox
+                    x:Name="date_cb"
+                    SelectionChanged="date_cb_SelectionChanged"
+                HorizontalAlignment="Right"
+                Width="100">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock
+                                Text="{Binding Path=Name}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel
+            Orientation="Horizontal"
+            VerticalAlignment="Top"
+                HorizontalAlignment="Right"
+            Margin="190, 5, 0, 0">
+                <Border
+                BorderBrush="Black"
+                BorderThickness="1"
+                Width="50">
+                    <Grid>
+                        <DataGrid
+                        CanUserResizeColumns="False"
+                    Margin="0, 20, 0, 0"
+                    AutoGenerateColumns="False"
+                    IsReadOnly="True"
+                        Width="auto">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn HeaderStyle="{StaticResource centre_header}" Header="Total" Width="*"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </Border>
+                <Border
+                BorderBrush="Black"
+                BorderThickness="1"
+                Width="100">
+                    <Grid>
+                        <TextBlock
+                        Text="Gender"
+                        HorizontalAlignment="Center"/>
+                        <DataGrid
+                        x:Name="gender_dg"
+                        CanUserResizeColumns="False"
+                    Margin="0, 20, 0, 0"
+                    AutoGenerateColumns="False"
+                    IsReadOnly="True"
+                        Width="auto">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn HeaderStyle="{StaticResource centre_header}" Header="Male" Width="*"/>
+                                <DataGridTextColumn HeaderStyle="{StaticResource centre_header}" Header="Female" Width="*"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </Border>
+                <Border
+                BorderBrush="Black"
+                BorderThickness="1"
+                Margin="-1, 0, 0, 0"
+                Width="180">
+                    <Grid>
+                        <TextBlock
+                        Text="Age"
+                        HorizontalAlignment="Center"/>
+                        <DataGrid
+                        x:Name="age_dg"
+                        Width="auto"
+                        CanUserResizeColumns="False"
+                    Margin="0, 20, 0, 0"
+                    AutoGenerateColumns="False"
+                    IsReadOnly="True">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn HeaderStyle="{StaticResource centre_header}" Header="18-24" Width="*"/>
+                                <DataGridTextColumn HeaderStyle="{StaticResource centre_header}" Header="25-39" Width="*"/>
+                                <DataGridTextColumn HeaderStyle="{StaticResource centre_header}" Header="40-59" Width="*"/>
+                                <DataGridTextColumn HeaderStyle="{StaticResource centre_header}" Header="  60+" Width="*"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </Border>
+                <Border
+                BorderBrush="Black"
+                BorderThickness="1"
+                Margin="-1, 0, 0, 0"
+                Width="150">
+                    <Grid>
+                        <TextBlock
+                        Text="Cabin Type"
+                        HorizontalAlignment="Center"/>
+                        <DataGrid
+                        x:Name="cabin_type_dg"
+                    Margin="0, 20, 0, 0"
+                        CanUserResizeColumns="False"
+                    AutoGenerateColumns="False"
+                    IsReadOnly="True">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn HeaderStyle="{StaticResource centre_header}" Header="Economy" Width="52"/>
+                                <DataGridTextColumn HeaderStyle="{StaticResource centre_header}" Header="Business" Width="*"/>
+                                <DataGridTextColumn HeaderStyle="{StaticResource centre_header}" Header="First" Width="*"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </Border>
+                <Border
+                BorderBrush="Black"
+                BorderThickness="1"
+                Margin="-1, 0, 0, 0"
+                Width="200">
+                    <Grid>
+                        <TextBlock
+                        Text="Destination Airport"
+                        HorizontalAlignment="Center"/>
+                        <DataGrid
+                        x:Name="destination_dg"
+                    Margin="0, 20, 0, 0"
+                        CanUserResizeColumns="False"
+                    AutoGenerateColumns="False"
+                    IsReadOnly="True">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn HeaderStyle="{StaticResource centre_header}" Header="AUH" Width="*"/>
+                                <DataGridTextColumn HeaderStyle="{StaticResource centre_header}" Header="BAH" Width="*"/>
+                                <DataGridTextColumn HeaderStyle="{StaticResource centre_header}" Header="DOH" Width="*"/>
+                                <DataGridTextColumn HeaderStyle="{StaticResource centre_header}" Header="RUH" Width="*"/>
+                                <DataGridTextColumn HeaderStyle="{StaticResource centre_header}" Header="CAI" Width="*"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </Border>
+            </StackPanel>
+            <StackPanel
+                HorizontalAlignment="Right"
+                Orientation="Horizontal"
+                Margin="0, 5, 0, 0">
+                <TextBlock
+                Margin="0, 0, 30, 0"
+                Text="Please rate our aircraft flown on AMONIC Airlines"/>
+                <WindowsFormsHost
+                    Width="680"
+                    Height="10">
+                    <wf:PictureBox
+                        x:Name="q1_diagram"
+                        Dock="Fill"
+                        Width="730"/>
+                </WindowsFormsHost>
+            </StackPanel>
+            <DataGrid
+                x:Name="q1_dg"
+                AlternationCount="2"
+                AlternatingRowBackground="#FFCEDDF1"
+                GridLinesVisibility="None"
+                BorderBrush="Transparent"
+                HeadersVisibility="None">
+                <DataGrid.Columns>
+                    <DataGridTextColumn ElementStyle="{StaticResource right_cell}" Width="290" Binding="{Binding Path=[0]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="52" Binding="{Binding Path=[1]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="50" Binding="{Binding Path=[2]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="50" Binding="{Binding Path=[3]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="45" Binding="{Binding Path=[4]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="45" Binding="{Binding Path=[5]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="45" Binding="{Binding Path=[6]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="45" Binding="{Binding Path=[7]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="49" Binding="{Binding Path=[8]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="49" Binding="{Binding Path=[9]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="49" Binding="{Binding Path=[10]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="*" Binding="{Binding Path=[11]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="*" Binding="{Binding Path=[12]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="*" Binding="{Binding Path=[13]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="*" Binding="{Binding Path=[14]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="*" Binding="{Binding Path=[15]}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel
+                HorizontalAlignment="Right"
+                Orientation="Horizontal"
+                Margin="0, 5, 0, 0">
+                <TextBlock
+                Margin="0, 0, 70, 0"
+                Text="How would you rate our flight attendants:"/>
+                <WindowsFormsHost
+                    Width="680"
+                    Height="10">
+                    <wf:PictureBox
+                        x:Name="q2_diagram"
+                        Dock="Fill"
+                        Width="730"/>
+                </WindowsFormsHost>
+            </StackPanel>
+            <DataGrid
+                x:Name="q2_dg"
+                AlternationCount="2"
+                AlternatingRowBackground="#FFCEDDF1"
+                GridLinesVisibility="None"
+                BorderBrush="Transparent"
+                HeadersVisibility="None">
+                <DataGrid.Columns>
+                    <DataGridTextColumn ElementStyle="{StaticResource right_cell}" Width="290" Binding="{Binding Path=[0]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="52" Binding="{Binding Path=[1]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="50" Binding="{Binding Path=[2]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="50" Binding="{Binding Path=[3]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="45" Binding="{Binding Path=[4]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="45" Binding="{Binding Path=[5]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="45" Binding="{Binding Path=[6]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="45" Binding="{Binding Path=[7]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="49" Binding="{Binding Path=[8]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="49" Binding="{Binding Path=[9]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="49" Binding="{Binding Path=[10]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="*" Binding="{Binding Path=[11]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="*" Binding="{Binding Path=[12]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="*" Binding="{Binding Path=[13]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="*" Binding="{Binding Path=[14]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="*" Binding="{Binding Path=[15]}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel
+                HorizontalAlignment="Right"
+                Orientation="Horizontal"
+                Margin="0, 5, 0, 0">
+                <TextBlock
+                Margin="0, 0, 44, 0"
+                Text="How would you rate our inflight entertainment"/>
+                <WindowsFormsHost
+                    Width="680"
+                    Height="10">
+                    <wf:PictureBox
+                        x:Name="q3_diagram"
+                        Dock="Fill"
+                        Width="730"/>
+                </WindowsFormsHost>
+            </StackPanel>
+            <DataGrid
+                x:Name="q3_dg"
+                AlternationCount="2"
+                AlternatingRowBackground="#FFCEDDF1"
+                GridLinesVisibility="None"
+                BorderBrush="Transparent"
+                HeadersVisibility="None">
+                <DataGrid.Columns>
+                    <DataGridTextColumn ElementStyle="{StaticResource right_cell}" Width="290" Binding="{Binding Path=[0]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="52" Binding="{Binding Path=[1]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="50" Binding="{Binding Path=[2]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="50" Binding="{Binding Path=[3]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="45" Binding="{Binding Path=[4]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="45" Binding="{Binding Path=[5]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="45" Binding="{Binding Path=[6]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="45" Binding="{Binding Path=[7]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="49" Binding="{Binding Path=[8]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="49" Binding="{Binding Path=[9]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="49" Binding="{Binding Path=[10]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="*" Binding="{Binding Path=[11]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="*" Binding="{Binding Path=[12]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="*" Binding="{Binding Path=[13]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="*" Binding="{Binding Path=[14]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="*" Binding="{Binding Path=[15]}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel
+                HorizontalAlignment="Right"
+                Orientation="Horizontal"
+                Margin="0, 5, 0, 0">
+                <TextBlock
+                Margin="0, 0, 10, 0"
+                Text="Please rate the ticket price for the trip you are taking:"/>
+                <WindowsFormsHost
+                    Width="680"
+                    Height="10">
+                    <wf:PictureBox
+                        x:Name="q4_diagram"
+                        Dock="Fill"
+                        Width="730"/>
+                </WindowsFormsHost>
+            </StackPanel>
+            <DataGrid
+                x:Name="q4_dg"
+                AlternationCount="2"
+                AlternatingRowBackground="#FFCEDDF1"
+                GridLinesVisibility="None"
+                BorderBrush="Transparent"
+                HeadersVisibility="None">
+                <DataGrid.Columns>
+                    <DataGridTextColumn ElementStyle="{StaticResource right_cell}" Width="290" Binding="{Binding Path=[0]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="52" Binding="{Binding Path=[1]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="50" Binding="{Binding Path=[2]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="50" Binding="{Binding Path=[3]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="45" Binding="{Binding Path=[4]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="45" Binding="{Binding Path=[5]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="45" Binding="{Binding Path=[6]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="45" Binding="{Binding Path=[7]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="49" Binding="{Binding Path=[8]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="49" Binding="{Binding Path=[9]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="49" Binding="{Binding Path=[10]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="*" Binding="{Binding Path=[11]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="*" Binding="{Binding Path=[12]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="*" Binding="{Binding Path=[13]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="*" Binding="{Binding Path=[14]}"/>
+                    <DataGridTextColumn ElementStyle="{StaticResource centre_cell}" Width="*" Binding="{Binding Path=[15]}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel
+                Orientation="Horizontal"
+                Margin="200, 15, 0, 0">
+                <Border
+                    Width="8"
+                    Height="8"
+                    Background="#FF52A068"/>
+                <TextBlock
+                    Text="Outstanding"
+                    Margin="5, 0, 0, 0"/>
+                <Border
+                    Width="8"
+                    Height="8"
+                    Background="#FFA6DEA9"
+                    Margin="20, 0, 0, 0"/>
+                <TextBlock
+                    Text="Very Good"
+                    Margin="5, 0, 0, 0"/>
+                <Border
+                    Width="8"
+                    Height="8"
+                    Background="#FFC6E6C8"
+                    Margin="20, 0, 0, 0"/>
+                <TextBlock
+                    Text="Good"
+                    Margin="5, 0, 0, 0"/>
+                <Border
+                    Width="8"
+                    Height="8"
+                    Background="#FFE0CFBB"
+                    Margin="20, 0, 0, 0"/>
+                <TextBlock
+                    Text="Adequate"
+                    Margin="5, 0, 0, 0"/>
+                <Border
+                    Width="8"
+                    Height="8"
+                    Background="#FFE2C1C1"
+                    Margin="20, 0, 0, 0"/>
+                <TextBlock
+                    Text="Needs Improvement"
+                    Margin="5, 0, 0, 0"/>
+                <Border
+                    Width="8"
+                    Height="8"
+                    Background="#FFE45839"
+                    Margin="20, 0, 0, 0"/>
+                <TextBlock
+                    Text="Poor"
+                    Margin="5, 0, 0, 0"/>
+                <Border
+                    Width="8"
+                    Height="8"
+                    Background="#FFDADADA"
+                    Margin="20, 0, 0, 0"/>
+                <TextBlock
+                    Text="Don't know"
+                    Margin="5, 0, 0, 0"/>
+            </StackPanel>
+            <StackPanel
+                Orientation="Horizontal"
+                HorizontalAlignment="Center"
+                Margin="0, 10, 0, 10">
+                <CheckBox
+                    x:Name="gender_check"
+                    Checked="gender_check_Checked"
+                    Unchecked="gender_check_Checked"
+                    Content="Gender"
+                    Margin="0, 5, 0, 0"/>
+                <ComboBox
+                    x:Name="gender_cb"
+                    SelectionChanged="gender_cb_SelectionChanged"
+                    Margin="10, 0, 0, 0"
+                    Width="100">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock
+                                Text="{Binding Path=Name}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <CheckBox
+                    x:Name="age_check"
+                    Checked="age_check_Checked"
+                    Unchecked="age_check_Checked"
+                    Content="Age"
+                    Margin="90, 5, 0, 0"/>
+                <ComboBox
+                    x:Name="age_cb"
+                    SelectionChanged="age_cb_SelectionChanged"
+                    Margin="10, 0, 0, 0"
+                    Width="100">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock
+                                Text="{Binding Path=Name}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

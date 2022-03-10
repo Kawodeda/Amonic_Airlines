@@ -1,0 +1,97 @@
+﻿<Window x:Class="AMONIC_Session5.ReportWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AMONIC_Session5"
+        mc:Ignorable="d"
+        Title="Amenities Report" 
+        Height="450" 
+        Width="800"
+        WindowStartupLocation="CenterScreen"
+        MinWidth="600"
+        MinHeight="300">
+    <Grid>
+        <StackPanel
+            Orientation="Vertical"
+            VerticalAlignment="Top">
+            <StackPanel
+                Orientation="Horizontal"
+                Margin="10, 10, 0, 0">
+                <RadioButton
+                    x:Name="mode_1_rbtn"
+                    Checked="mode_1_rbtn_Checked"
+                    Margin="0, 2, 5, 0"
+                    IsChecked="True"
+                    GroupName="Mode"/>
+                <TextBlock
+                    Text="Flight ID:"/>
+                <TextBox
+                    x:Name="flight_tb"
+                    Width="150"
+                    Margin="10, 0, 0, 0"/>
+                <TextBlock
+                    Text="Date:"
+                    Margin="20, 0, 0, 0"/>
+                <TextBox
+                    x:Name="date_tb"
+                    Width="150"
+                    Margin="10, 0, 0, 0"/>
+            </StackPanel>
+            <StackPanel
+                Orientation="Horizontal"
+                Margin="10, 10, 0, 0">
+                <RadioButton
+                    x:Name="mode_2_rbtn"
+                    Margin="0, 2, 5, 0"
+                    Checked="mode_2_rbtn_Checked"
+                    GroupName="Mode"/>
+                <TextBlock
+                    Text="from:"/>
+                <TextBox
+                    x:Name="from_tb"
+                    Width="150"
+                    Margin="10, 0, 0, 0"
+                    IsEnabled="False"/>
+                <TextBlock
+                    Text="to:"
+                    Margin="20, 0, 0 ,0"/>
+                <TextBox
+                    x:Name="to_tb"
+                    Width="130"
+                    Margin="20, 0, 0, 0"
+                    IsEnabled="False"/>
+                <Button
+                    x:Name="make_report_btn"
+                    Click="make_report_btn_Click"
+                    Width="100"
+                    Margin="20, 0, 0, 0"
+                    Content="Make Report"/>
+            </StackPanel>
+        </StackPanel>
+        <DataGrid
+            x:Name="report_dg"
+            Margin="10, 70, 10, 10"
+            AutoGenerateColumns="False"
+            CanUserSortColumns="False"
+            CanUserResizeColumns="False"
+            HorizontalScrollBarVisibility="Visible"
+            IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Amenities" Binding="{Binding Path=[0]}"/>
+                <DataGridTextColumn Header="Extra Blanket"  Binding="{Binding Path=[1]}"/>
+                <DataGridTextColumn Header="Next Seat Free"  Binding="{Binding Path=[2]}"/>
+                <DataGridTextColumn Header="Two Neighboring Seats Free"  Binding="{Binding Path=[3]}"/>
+                <DataGridTextColumn Header="Tablet Rental"  Binding="{Binding Path=[4]}"/>
+                <DataGridTextColumn Header="Laptop Rental"  Binding="{Binding Path=[5]}"/>
+                <DataGridTextColumn Header="Lounge Access"  Binding="{Binding Path=[6]}"/>
+                <DataGridTextColumn Header="Soft Drinks" Binding="{Binding Path=[7]}"/>
+                <DataGridTextColumn Header="Premium Headphones Rental"  Binding="{Binding Path=[8]}"/>
+                <DataGridTextColumn Header="Extra Bag" Binding="{Binding Path=[9]}"/>
+                <DataGridTextColumn Header="Fast Checkin Lane" Binding="{Binding Path=[10]}"/>
+                <DataGridTextColumn Header="Wi-Fi 50 mb" Binding="{Binding Path=[11]}"/>
+                <DataGridTextColumn Header="Wi-Fi 250 mb" Binding="{Binding Path=[12]}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

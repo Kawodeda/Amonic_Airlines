@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4ac705a649c640f8b250f6d319db6549" Name="Diagram1">
+        <EntityTypeShape EntityType="gr602_chudedModel.Aircrafts" Width="1.5" PointX="5.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="gr602_chudedModel.Airports" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="gr602_chudedModel.Amenities" Width="1.5" PointX="5.25" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="gr602_chudedModel.AmenitiesTickets" Width="1.5" PointX="12" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="gr602_chudedModel.CabinTypes" Width="1.5" PointX="7.5" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="gr602_chudedModel.Countries" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="gr602_chudedModel.Offices" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="gr602_chudedModel.Routes" Width="1.5" PointX="5.25" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="gr602_chudedModel.Schedules" Width="1.5" PointX="7.5" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gr602_chudedModel.Tickets" Width="1.5" PointX="9.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="gr602_chudedModel.Users" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
+        <AssociationConnector Association="gr602_chudedModel.FK_Schedule_AirCraft" ManuallyRouted="false" />
+        <AssociationConnector Association="gr602_chudedModel.FK_AirPort_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="gr602_chudedModel.FK_Routes_Airports2" ManuallyRouted="false" />
+        <AssociationConnector Association="gr602_chudedModel.FK_Routes_Airports3" ManuallyRouted="false" />
+        <AssociationConnector Association="gr602_chudedModel.FK_AmenitiesTickets_Amenities" ManuallyRouted="false" />
+        <AssociationConnector Association="gr602_chudedModel.FK_AmenitiesTickets_Tickets" ManuallyRouted="false" />
+        <AssociationConnector Association="gr602_chudedModel.FK_Ticket_TravelClass" ManuallyRouted="false" />
+        <AssociationConnector Association="gr602_chudedModel.FK_Office_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="gr602_chudedModel.FK_Users_Offices" ManuallyRouted="false" />
+        <AssociationConnector Association="gr602_chudedModel.FK_Schedule_Routes" ManuallyRouted="false" />
+        <AssociationConnector Association="gr602_chudedModel.FK_Ticket_Schedule" ManuallyRouted="false" />
+        <AssociationConnector Association="gr602_chudedModel.FK_Ticket_User" ManuallyRouted="false" />
+        <AssociationConnector Association="gr602_chudedModel.AmenitiesCabinType" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

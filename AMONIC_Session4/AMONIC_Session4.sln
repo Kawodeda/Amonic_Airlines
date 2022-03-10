@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31605.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMONIC_Session4", "AMONIC_Session4\AMONIC_Session4.csproj", "{ED87332B-9C47-4B02-9DD4-59D26F33D017}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ED87332B-9C47-4B02-9DD4-59D26F33D017}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED87332B-9C47-4B02-9DD4-59D26F33D017}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED87332B-9C47-4B02-9DD4-59D26F33D017}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED87332B-9C47-4B02-9DD4-59D26F33D017}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {47072D99-9018-4E35-8701-F8FA0D9CCA68}
+	EndGlobalSection
+EndGlobal

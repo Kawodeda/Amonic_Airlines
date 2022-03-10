@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amonic_API", "Amonic_API\Amonic_API.csproj", "{088214F2-93BD-49B7-AFD7-AD31D23F1E06}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{088214F2-93BD-49B7-AFD7-AD31D23F1E06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{088214F2-93BD-49B7-AFD7-AD31D23F1E06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{088214F2-93BD-49B7-AFD7-AD31D23F1E06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{088214F2-93BD-49B7-AFD7-AD31D23F1E06}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {85AE526C-375A-4747-9EF6-F1CCE31EA664}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,180 @@
+﻿
+<Window x:Class="AMONIC_Session5.ShortSummaryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AMONIC_Session5"
+        mc:Ignorable ="d"
+        Title = "AMONIC Airlines Short Summary" 
+        Height = "700"
+        Width = "750" 
+        WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded"
+        >
+
+    <Grid>
+        <StackPanel
+            Orientation="Vertical"
+            VerticalAlignment="Stretch">
+            <Image
+                Source="logo.png"
+                Width="400"
+                Margin="0, 10, 0, 0"/>
+            <Border
+                BorderBrush="Black"
+                BorderThickness="1"
+                Margin="20, 20, 20, 0">
+                <Grid>
+                    <TextBlock
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Left"
+                        Margin="5, -10, 0, 0"
+                        Background="White"
+                        Text="In the last 30 days..."/>
+                    <StackPanel
+                        Orientation="Vertical">
+                        <StackPanel
+                            Orientation="Horizontal">
+                            <Border
+                                BorderBrush="Black"
+                                BorderThickness="1"
+                                Margin="15, 15, 0 , 0">
+                                <Grid>
+                                    <TextBlock
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Left"
+                        Margin="5, -10, 0, 0"
+                        Background="White"
+                        Text="Flights"/>
+                                        <TextBlock
+                                        x:Name="flights_tb"
+                                        Margin="15, 15, 15, 15"
+                                        Width="290"/>
+                                </Grid>
+                            </Border>
+                            <Border
+                                BorderBrush="Black"
+                                BorderThickness="1"
+                                Margin="15, 15, 15 , 0">
+                                <Grid>
+                                    <TextBlock
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Left"
+                        Margin="5, -10, 0, 0"
+                        Background="White"
+                        Text="Top Customers (Number of purchases)"/>
+                                    <TextBlock
+                                        x:Name="top_customers_tb"
+                                        Margin="15, 15, 15, 15"
+                                        Width="290"/>
+                                </Grid>
+                            </Border>
+                        </StackPanel>
+                        <StackPanel
+                            Orientation="Horizontal">
+                            <Border
+                                BorderBrush="Black"
+                                BorderThickness="1"
+                                Margin="15, 15, 0 , 15">
+                                <Grid>
+                                    <TextBlock
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Left"
+                        Margin="5, -10, 0, 0"
+                        Background="White"
+                        Text="Number of passengers flying"/>
+                                    <TextBlock
+                                        x:Name="passengers_tb"
+                                        Margin="15, 15, 15, 15"
+                                        Width="290"/>
+                                </Grid>
+                            </Border>
+                            <Border
+                                BorderBrush="Black"
+                                BorderThickness="1"
+                                Margin="15, 15, 15 , 15">
+                                <Grid>
+                                    <TextBlock
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Left"
+                        Margin="5, -10, 0, 0"
+                        Background="White"
+                        Text="Top AMONIC Airlines Offices (Revenue)"/>
+                                    <TextBlock
+                                        x:Name="top_offices_tb"
+                                        Margin="15, 15, 15, 15"
+                                        Width="290"/>
+                                </Grid>
+                            </Border>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <Border
+                BorderBrush="Black"
+                BorderThickness="1"
+                Margin="20, 25, 20, 0">
+                <Grid>
+                    <TextBlock
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Margin="5, -10, 0, 0"
+                        Background="White"
+                        Text="Revenue from ticket sales"/>
+                    <TextBlock
+                            x:Name="yesterday_tb"
+                        HorizontalAlignment="Left"
+                        Margin="10, 10, 10, 10"/>
+                        <TextBlock
+                            x:Name="two_days_ago_tb"
+                            HorizontalAlignment="Center"
+                            Margin="10, 10, 10, 10"/>
+                    <TextBlock
+                        x:Name="three_days_ago_tb"
+                        HorizontalAlignment="Right"
+                        Margin="10, 10, 10, 10"/>
+                </Grid>
+            </Border>
+            <Border
+                BorderBrush="Black"
+                BorderThickness="1"
+                Margin="20, 20, 20, 0">
+                <Grid>
+                    <TextBlock
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Margin="5, -10, 0, 0"
+                        Background="White"
+                        Text="Weekly report of precentage of empty seats"/>
+                    <TextBlock
+                            x:Name="this_week_tb"
+                        HorizontalAlignment="Left"
+                        Margin="10, 10, 10, 10"/>
+                    <TextBlock
+                            x:Name="last_week_tb"
+                            HorizontalAlignment="Center"
+                            Margin="10, 10, 10, 10"/>
+                    <TextBlock
+                        x:Name="two_weeks_ago_tb"
+                        HorizontalAlignment="Right"
+                        Margin="10, 10, 10, 10"/>
+                </Grid>
+            </Border>
+        </StackPanel>
+        <TextBlock
+            x:Name="generation_time_tb"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Margin="20, 0, 0, 20"/>
+        <Button
+            x:Name="close_btn"
+            Click="close_btn_Click"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            Margin="0, 0, 30, 20"
+            Width="70"
+            Height="20"
+            Content="Close"/>
+    </Grid>
+    </Window>

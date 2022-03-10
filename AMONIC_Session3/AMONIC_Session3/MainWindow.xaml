@@ -1,0 +1,233 @@
+﻿<Window x:Class="AMONIC_Session3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AMONIC_Session3"
+        mc:Ignorable="d"
+        Title="MainWindow" 
+        Height="580" 
+        Width="800"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Border
+            BorderBrush="Black"
+            BorderThickness="1"
+            VerticalAlignment="Top"
+            Margin="10, 20, 10, 0">
+            <Grid>
+                <TextBlock
+                    Text="Search Parameters"
+                    Background="White"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    Margin="5, -10, 0, 0"/>
+                <StackPanel
+                    Orientation="Vertical">
+                    <StackPanel
+                    Orientation="Horizontal"
+                    Margin="10, 10, 10, 10">
+                        <TextBlock
+                        Text="From"
+                        Margin="5, 0, 0, 0"/>
+                        <ComboBox
+                        x:Name="from_cb"
+                        Margin="10, 0, 0, 0"
+                        Width="150"
+                            SelectionChanged="from_cb_SelectionChanged">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock
+                                        Text="{Binding Path=IATACode}"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                        <TextBlock
+                        Text="To"
+                        Margin="30, 0, 0, 0"/>
+                        <ComboBox
+                        x:Name="to_cb"
+                        Margin="10, 0, 0, 0"
+                        Width="150">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock
+                                        Text="{Binding Path=IATACode}"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                        <TextBlock
+                        Text="Cabin Type"
+                        Margin="20, 0, 0, 0"/>
+                        <ComboBox
+                        x:Name="cabin_type_cb"
+                        Margin="10, 0, 0, 0"
+                        Width="150">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock
+                                        Text="{Binding Path=Name}"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                    </StackPanel>
+                    <StackPanel
+                    Orientation="Horizontal"
+                    Margin="10, 10, 10, 10">
+                        <RadioButton
+                        x:Name="return_rbtn"
+                        Content="Return"
+                        Margin="5, 0, 0, 0"
+                        GroupName="Return"
+                            IsChecked="True"
+                            Checked="return_rbtn_Checked"
+                            Unchecked="return_rbtn_Checked"/>
+                        <RadioButton
+                        x:Name="one_way_rbtn"
+                        Content="One way"
+                        Margin="15, 0, 0, 0"
+                        GroupName="Return"/>
+                        <TextBlock
+                            Text="Outbound"
+                            Margin="40, 0, 0, 0"/>
+                        <TextBox
+                            x:Name="outbound_tb"
+                            Width="150"
+                            Margin="10, 0, 0, 0"/>
+                        <TextBlock
+                            Text="Return"
+                            Margin="20, 0, 0, 0"/>
+                        <TextBox
+                            x:Name="return_tb"
+                            Margin="10, 0, 0, 0"
+                            Width="150"/>
+                        <Button
+                            x:Name="apply_btn"
+                            Click="apply_btn_Click"
+                            Content="Apply"
+                            Margin="30, 0, 0, 0"
+                            Width="80"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </Border>
+        <TextBlock
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Text="Outbound flight details:"
+            Margin="15, 0, 0, 280"/>
+        <CheckBox
+            x:Name="outbound_3days_check"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
+            Margin="0, 0, 15, 280"
+            Content="Display three days before and after"
+            Checked="outbound_3days_check_Checked"
+            Unchecked="outbound_3days_check_Checked"/>
+        <DataGrid
+            x:Name="outbound_dg"
+            VerticalAlignment="Center"
+            Margin="10, 0, 10, 100"
+            Height="150"
+            AutoGenerateColumns="False"
+            IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="From" Width="50" Binding="{Binding Path=Routes.Airports.IATACode}"/>
+                <DataGridTextColumn Header="To" Width="50" Binding="{Binding Path=Routes.Airports1.IATACode}"/>
+                <DataGridTextColumn Header="Date" Width="80" Binding="{Binding StringFormat={}{0:d}, Path=Date}"/>
+                <DataGridTextColumn Header="Time" Width="60" Binding="{Binding StringFormat={}{0:t}, Path=Time}"/>
+                <DataGridTextColumn Header="Flight Number(s)" Width="*" Binding="{Binding Path=FlightNumber}"/>
+                <DataGridTextColumn Header="Cabin Price" Width="*">
+                    <DataGridTextColumn.Binding>
+                        <MultiBinding
+                            StringFormat="{}{0:c}"
+                            Converter="{StaticResource PriceConverter}">
+                            <Binding Path="EconomyPrice"/>
+                            <Binding ElementName="apply_btn" Path="Tag"/>
+                        </MultiBinding>
+                    </DataGridTextColumn.Binding>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Number of stops" Width="*" Binding="{Binding Path=StopsCount}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Margin="15, 100, 0, 0"
+            Text="Return flight details:"/>
+        <CheckBox
+            x:Name="return_3days_check"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
+            Margin="0, 100, 15, 0"
+            Content="Display three days before and after"
+            Checked="return_3days_check_Checked"
+            Unchecked="return_3days_check_Checked"/>
+        <DataGrid
+            x:Name="return_dg"
+            VerticalAlignment="Bottom"
+            Margin="10, 0, 10, 60"
+            Height="150"
+            AutoGenerateColumns="False"
+            IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="From" Width="50" Binding="{Binding Path=Routes.Airports.IATACode}"/>
+                <DataGridTextColumn Header="To" Width="50" Binding="{Binding Path=Routes.Airports1.IATACode}"/>
+                <DataGridTextColumn Header="Date" Width="80" Binding="{Binding StringFormat={}{0:d}, Path=Date}"/>
+                <DataGridTextColumn Header="Time" Width="60" Binding="{Binding StringFormat={}{0:t}, Path=Time}"/>
+                <DataGridTextColumn Header="Flight Number(s)" Width="*" Binding="{Binding Path=FlightNumber}"/>
+                <DataGridTextColumn Header="Cabin Price" Width="*">
+                    <DataGridTextColumn.Binding>
+                        <MultiBinding
+                            StringFormat="{}{0:c}"
+                            Converter="{StaticResource PriceConverter}">
+                            <Binding Path="EconomyPrice"/>
+                            <Binding ElementName="apply_btn" Path="Tag"/>
+                        </MultiBinding>
+                    </DataGridTextColumn.Binding>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Number of stops" Width="*" Binding="{Binding Path=StopsCount}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel
+            Orientation="Horizontal"
+            VerticalAlignment="Bottom"
+            Margin="150, 0, 100, 10">
+            <Border
+                BorderBrush="Black"
+                BorderThickness="1">
+                <Grid>
+                    <TextBlock
+                        Background="White"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Margin="5, -10, 0 , 0"
+                        Text="Confirm booking for"/>
+                    <StackPanel
+                        Orientation="Horizontal"
+                        Margin="80, 10, 10, 8">
+                        <TextBox
+                            x:Name="passengers_tb"
+                            Width="60"/>
+                        <TextBlock
+                            Text="Passengers"
+                            Margin="10, 0, 0, 0"/>
+                        <Button
+                            x:Name="book_flight_btn"
+                            Click="book_flight_btn_Click"
+                            Width="100"
+                            Margin="100, 0, 0, 0"
+                            Content="Book Flight"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <Button
+                x:Name="exit_btn"
+                Click="exit_btn_Click"
+                Content="Exit"
+                Width="70"
+                Height="20"
+                Margin="40, 0, 0, 0"/>
+        </StackPanel>
+    </Grid>
+</Window>

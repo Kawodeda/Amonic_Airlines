@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fa4404817ef9443a803ed689904442a3" Name="Diagram1">
+        <EntityTypeShape EntityType="gr602_chudedModel.Airports" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gr602_chudedModel.Answer" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="gr602_chudedModel.CabinTypes" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="gr602_chudedModel.Survey" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
+        <AssociationConnector Association="gr602_chudedModel.FK_Survey_Airports" ManuallyRouted="false" />
+        <AssociationConnector Association="gr602_chudedModel.FK_Survey_Airports1" ManuallyRouted="false" />
+        <AssociationConnector Association="gr602_chudedModel.FK_Survey_Answer" ManuallyRouted="false" />
+        <AssociationConnector Association="gr602_chudedModel.FK_Survey_Answer1" ManuallyRouted="false" />
+        <AssociationConnector Association="gr602_chudedModel.FK_Survey_Answer2" ManuallyRouted="false" />
+        <AssociationConnector Association="gr602_chudedModel.FK_Survey_Answer3" ManuallyRouted="false" />
+        <AssociationConnector Association="gr602_chudedModel.FK_Survey_CabinTypes" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

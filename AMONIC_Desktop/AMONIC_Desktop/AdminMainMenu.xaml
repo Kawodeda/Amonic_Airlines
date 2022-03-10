@@ -1,0 +1,73 @@
+﻿<Window x:Class="AMONIC_Desktop.AdminMainMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AMONIC_Desktop"
+        mc:Ignorable="d"
+        Title="AMONIC Airlines Automation System" 
+        Height="450" 
+        Width="800"
+        WindowStartupLocation="CenterScreen" Closing="Window_Closing">
+    <Grid>
+        <Menu
+            VerticalAlignment="Top"
+            Height="25">
+            <MenuItem
+                x:Name="add_user_btn"
+                Click="add_user_btn_Click"
+                Header="_Add user"/>
+            <MenuItem
+                x:Name="exit_btn"
+                Click="exit_btn_Click"
+                Header="_Exit"/>
+        </Menu>
+        <StackPanel
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Margin="10, 35"
+            Orientation="Horizontal">
+            <TextBlock
+                Text="Office:"/>
+            <ComboBox
+            Margin="10, 0, 0, 0"
+            x:Name="office_cb"
+            Width="150"
+            SelectionChanged="office_cb_SelectionChanged">
+            </ComboBox>
+        </StackPanel>
+        <DataGrid
+            x:Name="users_grid"
+            Margin="10, 70, 10 , 50"
+            AutoGenerateColumns="False"
+            ColumnWidth="*"
+            RowStyle="{StaticResource user_dg_style}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Path=FirstName}"/>
+                <DataGridTextColumn Header="LastName" Binding="{Binding Path=LastName}"/>
+                <DataGridTextColumn Header="Age" Binding="{Binding Path=Birthdate, Converter={StaticResource BirthdateConverter}}"/>
+                <DataGridTextColumn Header="User Role" Binding="{Binding Path=Roles.Title}"/>
+                <DataGridTextColumn Header="Email Address" Binding="{Binding Path=Email}"/>
+                <DataGridTextColumn Header="Office" Binding="{Binding Path=Offices.Title}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel
+            Orientation="Horizontal"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Margin="10, 0, 0, 10">
+            <Button
+                x:Name="change_role_btn"
+                Click="change_role_btn_Click"
+                Content="Change Role"
+                Style="{StaticResource button_style_s_font}"/>
+            <Button
+                x:Name="ban_btn"
+                Click="ban_btn_Click"
+                Content="Enable/Disable Login"
+                Width="170"
+                Margin="50, 0, 0, 0"
+                Style="{StaticResource button_style_s_font}"/>
+        </StackPanel>
+    </Grid>
+</Window>
